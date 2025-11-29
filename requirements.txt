@@ -1,0 +1,50 @@
+# Core Framework
+flask==3.0.0
+flask-cors==4.0.0
+gunicorn==21.2.0
+
+# AI/ML Libraries
+langchain==0.3.0
+langchain-community==0.3.0
+langchain-core==0.3.0
+langchain-text-splitters==0.3.0
+langchain-huggingface==0.1.0
+transformers==4.36.2
+torch==2.1.2
+sentence-transformers==2.2.2
+faiss-cpu==1.7.4
+huggingface-hub==0.20.1
+accelerate==0.25.0
+bitsandbytes==0.41.3
+
+# Data Processing
+pandas==2.1.4
+numpy==1.26.2
+datasets==2.16.1
+
+# Vector Database
+chromadb==0.4.22
+
+# Environment & Config
+python-dotenv==1.0.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Utilities
+tqdm==4.66.1
+requests==2.31.0
+
+# Logging & Monitoring
+python-json-logger==2.0.7
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-flask==1.3.0
+
+# Production
+redis==5.0.1
+celery==5.3.4
+
+# Session Management
+uuid==1.30
