@@ -241,51 +241,6 @@ The chatbot combines four medical datasets:
 3. **HealthSearchQA**: Health search queries with answers
 4. **LiveQA Medical**: Consumer health questions
 
-## Production Deployment
-
-### Using Docker (recommended)
-
-See `Dockerfile` and `docker-compose.yml`
-
-```bash
-docker-compose up -d
-```
-
-### Using Systemd
-
-Create `/etc/systemd/system/medical-rag.service`:
-
-```ini
-[Unit]
-Description=Medical RAG Chatbot
-After=network.target
-
-[Service]
-User=www-data
-WorkingDirectory=/path/to/rag
-Environment="PATH=/path/to/venv/bin"
-ExecStart=/path/to/venv/bin/gunicorn -w 4 -b 0.0.0.0:5000 app:app
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-```
-
-### Nginx Reverse Proxy
-
-```nginx
-server {
-    listen 80;
-    server_name your-domain.com;
-
-    location / {
-        proxy_pass http://localhost:5000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-```
-
 ## Monitoring
 
 Logs are written to:
@@ -296,15 +251,6 @@ Monitor with:
 ```bash
 tail -f logs/app.log
 ```
-
-## Security Considerations
-
-1. **Change SECRET_KEY** in production
-2. **Use HTTPS** for production deployment
-3. **Implement rate limiting** (Redis-based)
-4. **Add authentication** for admin endpoints
-5. **Validate all inputs**
-6. **Keep dependencies updated**
 
 ## Troubleshooting
 
@@ -329,15 +275,3 @@ This project is for educational purposes. Please ensure compliance with dataset 
 ## Support
 
 For issues or questions, check the logs in `logs/app.log`
-
-## Future Enhancements
-
-- [x] Add caching layer (Redis) ✅
-- [x] Add conversation history ✅
-- [x] Add batch processing endpoint ✅
-- [ ] Add user authentication and API keys
-- [ ] Add rate limiting per user
-- [ ] Add more medical datasets
-- [ ] Add multi-language support
-- [ ] Add voice input/output
-- [ ] Add medical image analysis
