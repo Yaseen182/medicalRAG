@@ -232,6 +232,10 @@ curl -X POST http://localhost:5000/api/v1/search \
 - Reduce `TOP_K_RESULTS` for faster queries
 - Consider using quantized models
 
+
+⚠️ **note:** It’s recommended to have Redis properly set up, as it is required for the caching layer to function correctly and improve the system’s response speed.
+
+
 ## Datasets
 
 The chatbot combines four medical datasets:
